@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white; /* Para mas madaling basahin ang text */
+    overflow: hidden; /* Para maiwasan ang scroll */
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/imagae/1336966.jpeg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px); /* Blur effect */
+    z-index: -1; /* Para nasa likod ang background */
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0; /* Space above and below the gallery */
+}
+
+.gallery img {
+    max-width: 200px;
+    margin: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Para sa smooth na paglipat */
+}
+
+.gallery img:hover {
+    transform: scale(1.1); /* Palakihin ng 10% kapag na-hover */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.popup {
+    animation: popup 0.5s ease; /* Animation for popup effect */
+}
+
+@keyframes popup {
+    0% {
+        transform: scale(0.8); /* Magsimula ng maliit */
+        opacity: 1; /* Magsimula ng visible */
+    }
+    100% {
+        transform: scale(1); /* Lumaki sa normal size */
+        opacity: 1; /* Manatiling visible */
+    }
+}
+
+.fade-out {
+    animation: fadeOut 0.5s ease; /* Animation for fade-out effect */
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1; /* Magsimula ng visible */
+    }
+    100% {
+        opacity: 0; /* Gawing invisible */
+    }
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    animation: fadeIn 0.5s ease; /* Animation for close button */
+}
+
+.download {
+    position: absolute;
+    bottom: 20px; /* Ilagay ito sa lower */
+    right: 20px; /* Ilagay ito sa kanan */
+    background: none; /* Alisin ang background */
+    border: none; /* Tanggalin ang border */
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px; /* Optional: gawing rounded ang mga sulok */
+    outline: none; /* Tanggalin ang outline kapag na-click */
+    animation: fadeIn 0.5s ease; /* Animation for download button */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Magsimula ng invisible */
+    }
+    100% {
+        opacity: 1; /* Gawing visible */
+    }
+}
+
+.notification {
+    position: absolute;
+    bottom: 110px; /* Itaas ito mula sa download button */
+    right: 20px; /* Iposisyon ito sa kanan */
+    opacity: 0; /* Simulang invisible */
+    transition: opacity 0.5s ease; /* Para sa fade effect */
+    border-radius: 10px; /* Round corners */
+    overflow: hidden; /* Para hindi lumabas ang border radius */
+    z-index: 10; /* Siguraduhing ito ay nasa itaas ng ibang elemento */
+}
